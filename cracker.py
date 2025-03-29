@@ -12,36 +12,32 @@ init(autoreset=True)
 def clear_screen():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
 
-# Function to display ASCII art at the start
+# Function to display ASCII art first
 def display_ascii():
-    ascii_art r"""                
-             *                  
-            ***                 
-             *                  
-  ******                        
- ********  ***     ***  ****    
-*      **   ***     **** **** * 
-       *     **      **   ****  
-      *      **      **    **   
-     ***     **      **    **   
-      ***    **      **    **   
-       ***   **      **    **   
-        **   **      **    **   
-        **   *** *   ***   ***  
-        *     ***     ***   *** 
-       *                        
-      *                         
-     *        
+    ascii_art = r"""
+     ____             _       _____                     
+    |  _ \ _   _  ___| | __  |  ___| __ __ _ _ __ ___  
+    | |_) | | | |/ __| |/ /  | |_ | '__/ _` | '_ ` _ \ 
+    |  __/| |_| | (__|   <   |  _|| | | (_| | | | | | |
+    |_|    \__,_|\___|_|\_\  |_|  |_|  \__,_|_| |_| |_|
     """
     print(f"{Fore.CYAN}{Back.BLACK}{Style.BRIGHT}{ascii_art}\n")
 
-# Show ASCII first before anything else
+# Show ASCII before anything else
 clear_screen()
 display_ascii()
 
 # Function to check if running on Termux
 def is_termux():
     return os.path.exists('/data/data/com.termux/')
+
+# Function to check if ADB is installed
+def check_adb():
+    try:
+        os.system("adb version > nul 2>&1" if platform.system() == "Windows" else "adb version > /dev/null 2>&1")
+        return True
+    except:
+        return False
 
 # Function to send PIN input via ADB
 def send_pin(pin):
@@ -77,11 +73,12 @@ def brute_force(pin_length):
     print(f"{Fore.RED}[-] PIN not found in range.{Style.RESET_ALL}")
     return None
 
-# Check if running on Termux or PC and set ADB accordingly
+# Ensure ASCII is always displayed first, even if ADB is missing
 if is_termux():
     os.system("pkg install android-tools -y")  # Ensure ADB is installed in Termux
-else:
-    print(f"{Fore.YELLOW}Ensure ADB is installed on your PC and added to PATH.{Style.RESET_ALL}")
+elif not check_adb():
+    print(f"{Fore.RED}[!] ADB is not installed or not in PATH. Please install ADB and try again.{Style.RESET_ALL}")
+    exit()
 
 # Argument parser for choosing PIN length
 parser = argparse.ArgumentParser(description="Android PIN Brute Force using ADB")
