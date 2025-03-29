@@ -12,28 +12,20 @@ init(autoreset=True)
 def clear_screen():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
 
-# Function to display ASCII art with glowing effect
+# Function to display ASCII art at the start
 def display_ascii():
-    ascii_art r""                  
-             *                  
-            ***                 
-             *                  
-  ******                        
- ********  ***     ***  ****    
-*      **   ***     **** **** * 
-       *     **      **   ****  
-      *      **      **    **   
-     ***     **      **    **   
-      ***    **      **    **   
-       ***   **      **    **   
-        **   **      **    **   
-        **   *** *   ***   ***  
-        *     ***     ***   *** 
-       *                        
-      *                         
-     *                          
+    ascii_art = r"""
+     ____             _       _____                     
+    |  _ \ _   _  ___| | __  |  ___| __ __ _ _ __ ___  
+    | |_) | | | |/ __| |/ /  | |_ | '__/ _` | '_ ` _ \ 
+    |  __/| |_| | (__|   <   |  _|| | | (_| | | | | | |
+    |_|    \__,_|\___|_|\_\  |_|  |_|  \__,_|_| |_| |_|
     """
     print(f"{Fore.CYAN}{Back.BLACK}{Style.BRIGHT}{ascii_art}\n")
+
+# Show ASCII first before anything else
+clear_screen()
+display_ascii()
 
 # Function to check if running on Termux
 def is_termux():
@@ -72,10 +64,6 @@ def brute_force(pin_length):
 
     print(f"{Fore.RED}[-] PIN not found in range.{Style.RESET_ALL}")
     return None
-
-# Clear screen and show ASCII at the start
-clear_screen()
-display_ascii()
 
 # Check if running on Termux or PC and set ADB accordingly
 if is_termux():
