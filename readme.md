@@ -37,7 +37,9 @@ This script is an **Android PIN brute force tool** that uses **ADB (Android Debu
    ```
    *(Replace `4` with `6` or `8` for different PIN lengths)*
 
----
+--- # requirements : python Python 3.8+ up to 3.13 requires colorama
+
+pip install colorama
 
 ### **For Termux (Android)**
 1. **Install ADB in Termux:**
