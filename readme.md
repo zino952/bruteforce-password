@@ -28,12 +28,12 @@ This script is an **Android PIN brute force tool** that uses **ADB (Android Debu
      ```
 2. **Clone this repository:**
    ```sh
-   git clone https://github.com/YOUR_USERNAME/ADB-Brute-Force.git
-   cd ADB-Brute-Force
+   git clone https://github.com/zino952/bruteforce-password.git
+   cd bruteforce-password
    ```
 3. **Run the script:**
    ```sh
-   python adb_brute_force.py -l 4
+   python cracker.py -l 4
    ```
    *(Replace `4` with `6` or `8` for different PIN lengths)*
 
@@ -47,12 +47,12 @@ This script is an **Android PIN brute force tool** that uses **ADB (Android Debu
    ```
 2. **Clone this repository:**
    ```sh
-   git clone https://github.com/zino952/ADB-Brute-Force.git
-   cd ADB-Brute-Force
+   git clone https://github.com/zino952/bruteforce-password.git
+   cd bruteforce-password
    ```
 3. **Run the script:**
    ```sh
-   python adb_brute_force.py -l 4
+   python cracker.py -l 4
    ```
 
 ---
