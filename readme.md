@@ -47,7 +47,7 @@ This script is an **Android PIN brute force tool** that uses **ADB (Android Debu
    ```
 2. **Clone this repository:**
    ```sh
-   git clone https://github.com/YOUR_USERNAME/ADB-Brute-Force.git
+   git clone https://github.com/zino952/ADB-Brute-Force.git
    cd ADB-Brute-Force
    ```
 3. **Run the script:**
